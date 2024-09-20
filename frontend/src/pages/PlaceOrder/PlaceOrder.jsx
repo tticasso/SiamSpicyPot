@@ -33,6 +33,7 @@ const PlaceOrder = () => {
 
     const placeOrder = async (e) => {
         e.preventDefault()
+        
         let orderItems = [];
         food_list.map(((item) => {
             if (cartItems[item._id] > 0) {
@@ -46,6 +47,8 @@ const PlaceOrder = () => {
             items: orderItems,
             amount: getTotalCartAmount() + deliveryCharge,
         }
+        console.log(orderData);
+        
         if (payment === "stripe") {
             let response = await axios.post(url + "/api/order/place", orderData, { headers: { token } });
             if (response.data.success) {
@@ -64,6 +67,8 @@ const PlaceOrder = () => {
                 setCartItems({});
             }
             else {
+                console.log(response.data);
+                
                 toast.error("Something Went Wrong")
             }
         }
@@ -71,11 +76,7 @@ const PlaceOrder = () => {
     }
 
     useEffect(() => {
-        if (!token) {
-            toast.error("to place an order sign in first")
-            navigate('/cart')
-        }
-        else if (getTotalCartAmount() === 0) {
+        if (getTotalCartAmount() === 0) {
             navigate('/cart')
         }
     }, [token])

@@ -70,7 +70,6 @@ const placeOrderCod = async (req, res) => {
             payment: true,
         })
         await newOrder.save();
-        await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
         res.json({ success: true, message: "Order Placed" });
 

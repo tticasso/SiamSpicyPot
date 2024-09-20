@@ -1,0 +1,55 @@
+# Node modules folder
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Environment variable files
+.env
+.env.test
+.env.production
+
+# Mac system files
+.DS_Store
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+
+# Coverage directories (for testing frameworks)
+coverage/
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Compiled JavaScript files
+*.tsbuildinfo
+*.js.map
+
+# Ignore local testing databases
+*.sqlite
+*.db
+
+# Ignore any generated API clients
+generated/
