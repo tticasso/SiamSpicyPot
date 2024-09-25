@@ -11,6 +11,7 @@ import AboutUs from './pages/Aboutus/AboutUs'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Verify from './pages/Verify/Verify'
+import Menu from './pages/Menu/Menu'
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
           <Route path='/myorders' element={<MyOrders />}/>
           <Route path='/verify' element={<Verify />}/>
           <Route path='/aboutus' element={<AboutUs/>}/>
+          <Route path='/menu' element={<Menu/>}/>
         </Routes>
       </div>
       <Footer />
