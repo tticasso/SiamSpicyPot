@@ -5,14 +5,13 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const Add = () => {
-
-
     const [image, setImage] = useState(false);
     const [data, setData] = useState({
         name: "",
         description: "",
         price: "",
-        category: "Salad"
+        category: "1person",
+        rating: "" // Thêm rating vào state
     });
 
     const onSubmitHandler = async (event) => {
@@ -28,7 +27,9 @@ const Add = () => {
         formData.append("description", data.description);
         formData.append("price", Number(data.price));
         formData.append("category", data.category);
+        formData.append("rating", Number(data.rating)); // Lưu giá trị rating
         formData.append("image", image);
+
         const response = await axios.post(`${url}/api/food/add`, formData);
         if (response.data.success) {
             toast.success(response.data.message)
@@ -36,11 +37,11 @@ const Add = () => {
                 name: "",
                 description: "",
                 price: "",
-                category: data.category
+                category: data.category,
+                rating: "" // Reset lại rating
             })
             setImage(false);
-        }
-        else {
+        } else {
             toast.error(response.data.message)
         }
     }
@@ -73,14 +74,8 @@ const Add = () => {
                     <div className='add-category flex-col'>
                         <p>Phân loại</p>
                         <select name='category' onChange={onChangeHandler} >
-                            <option value="Salad">Salad</option>
-                            <option value="Rolls">Rolls</option>
-                            <option value="Deserts">Deserts</option>
-                            <option value="Sandwich">Sandwich</option>
-                            <option value="Cake">Cake</option>
-                            <option value="Pure Veg">Pure Veg</option>
-                            <option value="Pasta">Pasta</option>
-                            <option value="Noodles">Noodles</option>
+                            <option value="1person">Phần ăn 1 người</option>
+                            <option value="23people">Phần ăn 2-3 người</option>
                         </select>
                     </div>
                     <div className='add-price flex-col'>
@@ -88,10 +83,24 @@ const Add = () => {
                         <input type="Number" name='price' onChange={onChangeHandler} value={data.price} placeholder='25' />
                     </div>
                 </div>
+                <div className='add-category-price'>
+                    <p>Đánh giá (1-5)</p>
+                    <input 
+                        type="Number" 
+                        name='rating' 
+                        onChange={onChangeHandler} 
+                        value={data.rating} 
+                        min="1" 
+                        max="5" 
+                        step="0.1"
+                        placeholder='4' 
+                        required 
+                    />
+                </div>
                 <button type='submit' className='add-btn' >Thêm sản phẩm</button>
             </form>
         </div>
     )
 }
 
-export default Add
+export default Add;

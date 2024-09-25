@@ -90,29 +90,16 @@ export const assets = {
 
 export const menu_list = [
     {
+        menu_id: "1person",
         menu_name: "Phần ăn cho 1 người",
         menu_image: menu_1
     },
     {
+        menu_id: "23people",
         menu_name: "Phần ăn cho 2-3 người",
         menu_image: menu_2
     },
-    {
-        menu_name: "Deserts",
-        menu_image: menu_3
-    },
-    {
-        menu_name: "Sandwich",
-        menu_image: menu_4
-    },
-    {
-        menu_name: "Cake",
-        menu_image: menu_5
-    },
-    {
-        menu_name: "Noodles",
-        menu_image: menu_8
-    }]
+]
 
 export const food_list = [
     {

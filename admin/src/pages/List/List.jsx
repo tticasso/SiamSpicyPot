@@ -43,6 +43,7 @@ const List = () => {
           <b>Ảnh</b>
           <b>Tên sản phẩm</b>
           <b>Loại sản phẩm</b>
+          <b>Đánh giá</b>
           <b>Giá</b>
           <b>Xóa sản phẩm</b>
         </div>
@@ -52,6 +53,7 @@ const List = () => {
               <img src={`${url}/images/` + item.image} alt="" />
               <p>{item.name}</p>
               <p>{item.category}</p>
+              <p>{item.rating}</p>
               <p>{currency}{item.price}</p>
               <p className='cursor' onClick={() => removeFood(item._id)}>x</p>
             </div>

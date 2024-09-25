@@ -3,30 +3,36 @@ import './FoodItem.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../Context/StoreContext';
 
-const FoodItem = ({ image, name, price, desc , id }) => {
+const FoodItem = ({ image, name, price, desc, id, rating }) => {
 
     const [itemCount, setItemCount] = useState(0);
-    const {cartItems,addToCart,removeFromCart,url,currency} = useContext(StoreContext);
+    const { cartItems, addToCart, removeFromCart, url, currency } = useContext(StoreContext);
 
     return (
         <div className='food-item'>
             <div className='food-item-img-container'>
-                <img className='food-item-image' src={url+"/images/"+image} alt="" />
+                <img className='food-item-image' src={url + "/images/" + image} alt="" />
                 {!cartItems[id]
-                ?<img className='add' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="" />
-                :<div className="food-item-counter">
-                        <img src={assets.remove_icon_red} onClick={()=>removeFromCart(id)} alt="" />
+                    ? <img className='add' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="" />
+                    : <div className="food-item-counter">
+                        <img src={assets.remove_icon_red} onClick={() => removeFromCart(id)} alt="" />
                         <p>{cartItems[id]}</p>
-                        <img src={assets.add_icon_green} onClick={()=>addToCart(id)} alt="" />
+                        <img src={assets.add_icon_green} onClick={() => addToCart(id)} alt="" />
                     </div>
                 }
             </div>
             <div className="food-item-info">
                 <div className="food-item-name-rating">
-                    <p>{name}</p> <img src={assets.rating_starts} alt="" />
+                    <p>{name}</p>
                 </div>
-                <p className="food-item-desc">{desc}</p>
-                <p className="food-item-price">{price} đ</p>
+                <p>Đánh giá: {rating}</p>
+                <p className="food-item-desc"> - Mô tả: {desc}</p>
+                <p className="food-item-price">
+                    <span style={{ fontSize: '30px', fontWeight: 'bold' }}>{price}</span>
+                    <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                </p>
+
+
             </div>
         </div>
     )

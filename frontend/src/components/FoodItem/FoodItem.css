@@ -58,6 +58,7 @@
     width: 70px;
 }
 .food-item-desc{
+    white-space: pre-line;
     color: #676767;
     font-size: 12px;
 }

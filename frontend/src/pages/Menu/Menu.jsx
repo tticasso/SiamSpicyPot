@@ -10,4 +10,4 @@ export default function Menu() {
             <FoodDisplay category={category}/>
         </div>
     );
-}
+}     

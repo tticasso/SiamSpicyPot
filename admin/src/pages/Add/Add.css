@@ -22,7 +22,7 @@
     gap: 30px;
 }
 .add-category-price select,.add-category-price input{
-    max-width: 120px;
+    max-width: 200px;
     padding: 10px;
 }
 .add-btn{
