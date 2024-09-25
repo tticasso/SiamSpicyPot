@@ -84,7 +84,7 @@ const Add = () => {
                         </select>
                     </div>
                     <div className='add-price flex-col'>
-                        <p>Giá</p>
+                        <p>Giá (nghìn đồng)</p>
                         <input type="Number" name='price' onChange={onChangeHandler} value={data.price} placeholder='25' />
                     </div>
                 </div>

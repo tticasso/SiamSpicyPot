@@ -56,6 +56,8 @@ const Order = () => {
     switch (status) {
       case 'Food Processing':
         return '#ffffcc'; // Light Yellow
+      case 'Delivering':
+        return '#ffffcc'; // Light Yellow
       case 'Out for delivery':
         return '#ffcccc'; // Light Red
       case 'Delivered':
@@ -134,6 +136,7 @@ const Order = () => {
               style={{ backgroundColor: selectBgColors[order._id],fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }}
             >
               <option style={{ backgroundColor: "#ffffcc", fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }} value="Food Processing">Đang xử lý</option>
+              <option style={{ backgroundColor: "#ffffcc", fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }} value="Delivering">Đang giao hàng</option>
               <option style={{ backgroundColor: "ffcccc", fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }} value="Out for delivery">Hủy đơn</option>
               <option style={{ backgroundColor: '#ccffcc', fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }} value="Delivered">Đã giao</option>
             </select>
