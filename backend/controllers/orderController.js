@@ -59,7 +59,7 @@ const placeOrder = async (req, res) => {
     }
 }
 
-// Placing User Order for Frontend using stripe
+// Placing User Order for Frontend using cod
 const placeOrderCod = async (req, res) => {
 
     const { token } = req.headers;

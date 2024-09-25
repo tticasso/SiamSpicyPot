@@ -21,7 +21,7 @@ const Navbar = ({ setShowLogin }) => {
       <Link to='/'><img className='logo' src={assets.logo} alt="" /></Link>
       <ul className="navbar-menu">
         <Link style={{ fontFamily: "'Playfair Display', serif", }} to="/" onClick={() => setMenu("home")} className={`${menu === "home" ? "active" : ""}`}>Trang chủ</Link>
-        <a style={{ fontFamily: "'Playfair Display', serif", }} href='#explore-menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Thực đơn</a>
+        <a style={{ fontFamily: "'Playfair Display', serif", }} href='/menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Thực đơn</a>
         <Link style={{ fontFamily: "'Playfair Display', serif", }}
          to="/aboutus" onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>Giới thiệu</Link>
       </ul>

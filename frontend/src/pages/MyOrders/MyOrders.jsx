@@ -12,7 +12,7 @@ const MyOrders = () => {
   const fetchOrders = async () => {
     const response = await axios.post(url + "/api/order/userorders", {}, { headers: { token } });
     console.log(response.data.data);
-    
+
     setData(response.data.data)
   }
 
@@ -26,11 +26,17 @@ const MyOrders = () => {
     <div className='my-orders'>
       <h2
         style={{
-          fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+          fontFamily: "'Playfair Display', serif",
           fontWeight: 'bold',
           fontSize: '30px',
         }}>Đơn hàng</h2>
       <div className="container">
+        {data.length == 0 &&
+          <div className="no-orders">
+            <p>Bạn cần tạo tài khoản và đăng nhập để theo dõi trạng thái đơn hàng</p>
+          </div>
+
+        }
         {data.map((order, index) => {
           return (
             <div key={index} className='my-orders-order'>

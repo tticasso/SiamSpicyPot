@@ -81,7 +81,7 @@ const Order = () => {
             <div>
               <p className='order-item-food'>
                 <span style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 'bold',
                   fontSize: '15px',
                 }}>Sản phẩm: </span>
@@ -93,18 +93,32 @@ const Order = () => {
               </p>
               <p className='order-item-name'>
                 <span style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 'bold',
                   fontSize: '15px',
-                }}>Khách hàng:</span> {order.address.firstName + " " + order.address.lastName}
+                }}>Khách hàng:</span> {order.address.name}
               </p>
               <div className='order-item-address'>
-                <p>{order.address.street + ","}</p>
-                <p>{order.address.city + ", " + order.address.state + ", " + order.address.country + ", " + order.address.zipcode}</p>
+                <span style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                }}>Địa chỉ: </span>
+                <p>{order.address.address} </p>
               </div>
+              {order.address.email &&
+                <div className='order-item-address'>
+                  <span style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+                }}>Email: </span>
+                  <p>{order.address.email} </p>
+                </div>
+              }
               <p className='order-item-phone'>
                 <span style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 'bold',
                   fontSize: '15px',
                 }}>SĐT:</span> {order.address.phone}
@@ -113,27 +127,27 @@ const Order = () => {
             <div>
               <p>
                 <span style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 'bold',
                   fontSize: '15px',
                 }}>Số lượng: </span> {order.items.length}</p>
               <p>
                 <span style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+                  fontFamily: "'Playfair Display', serif",
                   fontWeight: 'bold',
                   fontSize: '15px',
                 }}>Thời gian: </span> {formatDate(order.date)}
               </p>
             </div>
             <p><span style={{
-              fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+              fontFamily: "'Playfair Display', serif",
               fontWeight: 'bold',
               fontSize: '15px',
             }}>Thành tiền: </span>{currency}{order.amount}</p>
             <select
               onChange={(e) => statusHandler(e, order._id)}
               value={order.status}
-              style={{ backgroundColor: selectBgColors[order._id],fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }}
+              style={{ backgroundColor: selectBgColors[order._id], fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }}
             >
               <option style={{ backgroundColor: "#ffffcc", fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }} value="Food Processing">Đang xử lý</option>
               <option style={{ backgroundColor: "#ffffcc", fontFamily: 'Arial, Helvetica, Roboto, sans-serif', }} value="Delivering">Đang giao hàng</option>
