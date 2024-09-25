@@ -15,7 +15,6 @@
     font-size: 40px; /* Cỡ chữ lớn */
     color: #333; /* Màu đen đậm */
     margin-bottom: 20px;
-    text-align: center; /* Canh giữa */
     text-transform: uppercase; /* Chữ hoa */
   }
   
@@ -51,7 +50,8 @@
   }
   
   .core-values-list strong {
-    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
     color: #1e2836; /* Màu nhấn mạnh */
   }
   
