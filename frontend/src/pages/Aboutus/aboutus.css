@@ -1,0 +1,86 @@
+/* Container tổng quan */
+.introduction-container {
+    font-family: 'Playfair Display', serif; /* Áp dụng font Playfair Display */
+    background-color: #faf4e1; /* Màu nền giống trong hình */
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  /* Tiêu đề chính */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Đậm */
+    font-size: 40px; /* Cỡ chữ lớn */
+    color: #333; /* Màu đen đậm */
+    margin-bottom: 20px;
+    text-align: center; /* Canh giữa */
+    text-transform: uppercase; /* Chữ hoa */
+  }
+  
+  /* Tiêu đề phụ */
+  .section-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 16px;
+  }
+  
+  /* Phần nội dung */
+  .section-content {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400; /* Kiểu chữ thường */
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 24px;
+  }
+  
+  /* Danh sách các giá trị cốt lõi */
+  .core-values-list {
+    list-style-type: none; /* Bỏ dấu đầu dòng */
+    padding-left: 0;
+  }
+  
+  .core-values-list li {
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: #444;
+  }
+  
+  .core-values-list strong {
+    font-weight: 500;
+    color: #1e2836; /* Màu nhấn mạnh */
+  }
+  
+  /* Phần trích dẫn */
+  .blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #777;
+    border-left: 4px solid #ccc;
+    padding-left: 16px;
+    margin: 20px 0;
+  }
+  
+  /* Điều chỉnh layout trên thiết bị di động */
+  @media screen and (max-width: 768px) {
+    .introduction-container {
+      padding: 20px;
+    }
+  
+    .section-title {
+      font-size: 32px;
+    }
+  
+    .section-subtitle {
+      font-size: 24px;
+    }
+  
+    .section-content {
+      font-size: 16px;
+    }
+  }
+  

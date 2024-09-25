@@ -62,6 +62,8 @@ import parcel_icon from './parcel_icon.png'
 import checked from './checked.png'
 import un_checked from './un_checked.png'
 
+export const url = 'http://localhost:4000'
+
 export const assets = {
     logo,
     basket_icon,
