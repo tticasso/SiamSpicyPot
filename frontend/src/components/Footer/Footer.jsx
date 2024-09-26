@@ -9,10 +9,10 @@ const Footer = () => {
         <div className="footer-content-left">
           <img style={{ width: "300px" }} src={assets.logo} alt="" />
           <p style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
-                  fontWeight: 'bold',
-                  fontSize: '30px',
-                }}>🐘Chạm vị Thái với Siam Spice Pot🐘</p>
+            fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+            fontWeight: 'bold',
+            fontSize: '30px',
+          }}>🐘Chạm vị Thái với Siam Spice Pot🐘</p>
           {/* <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="" />
             <img src={assets.twitter_icon} alt="" />
@@ -30,10 +30,11 @@ const Footer = () => {
         </div> */}
         <div className="footer-content-right">
           <h2 style={{
-                  fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
-                  fontWeight: 'bold',
-                  fontSize: '30px',
-                }}>Liên hệ</h2>
+            color: 'black',
+            fontFamily: 'Arial, Helvetica, Roboto, sans-serif',
+            fontWeight: 'bold',
+            fontSize: '30px',
+          }}>Liên hệ</h2>
           <ul>
             <li>
               ♨️ Facebook: https://www.facebook.com/moctrafu</li>

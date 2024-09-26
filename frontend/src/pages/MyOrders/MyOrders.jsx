@@ -31,11 +31,15 @@ const MyOrders = () => {
           fontSize: '30px',
         }}>Đơn hàng</h2>
       <div className="container">
-        {data.length == 0 &&
+        {!token &&
           <div className="no-orders">
             <p>Bạn cần tạo tài khoản và đăng nhập để theo dõi trạng thái đơn hàng</p>
           </div>
-
+        }
+        {token && data.length == 0 &&
+          <div className="no-orders">
+            <p>Bạn chưa có đơn hàng nào</p>
+          </div>
         }
         {data.map((order, index) => {
           return (
