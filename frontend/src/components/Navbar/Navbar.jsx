@@ -21,7 +21,8 @@ const Navbar = ({ setShowLogin }) => {
       <Link to='/'><img className='logo' src={assets.logo} alt="" /></Link>
       <ul className="navbar-menu">
         <Link style={{ fontFamily: "'Playfair Display', serif", }} to="/" onClick={() => setMenu("home")} className={`${menu === "home" ? "active" : ""}`}>Trang chủ</Link>
-        <a style={{ fontFamily: "'Playfair Display', serif", }} href='/menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Thực đơn</a>
+        <Link style={{ fontFamily: "'Playfair Display', serif", }} to='/menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Thực đơn</Link>
+        <Link style={{ fontFamily: "'Playfair Display', serif", }} to='/sale' onClick={() => setMenu("sale")} className={`${menu === "sale" ? "active" : ""}`}>Khuyến mãi</Link>
         <Link style={{ fontFamily: "'Playfair Display', serif", }}
          to="/aboutus" onClick={() => setMenu("contact")} className={`${menu === "contact" ? "active" : ""}`}>Giới thiệu</Link>
       </ul>
@@ -31,13 +32,13 @@ const Navbar = ({ setShowLogin }) => {
           <img src={assets.basket_icon} alt="" />
           <div className={getTotalCartAmount() > 0 ? "dot" : ""}></div>
         </Link>
-        {!token ? <button onClick={() => setShowLogin(true)}>sign in</button>
+        {!token ? <button onClick={() => setShowLogin(true)}>Đăng nhập</button>
           : <div className='navbar-profile'>
             <img src={assets.profile_icon} alt="" />
             <ul className='navbar-profile-dropdown'>
-              <li onClick={() => navigate('/myorders')}> <img src={assets.bag_icon} alt="" /> <p>Orders</p></li>
+              <li onClick={() => navigate('/myorders')}> <img src={assets.bag_icon} alt="" /> <p>Đơn hàng</p></li>
               <hr />
-              <li onClick={logout}> <img src={assets.logout_icon} alt="" /> <p>Logout</p></li>
+              <li onClick={logout}> <img src={assets.logout_icon} alt="" /> <p>Đăng xuất</p></li>
             </ul>
           </div>
         }

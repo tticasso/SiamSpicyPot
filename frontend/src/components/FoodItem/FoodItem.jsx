@@ -25,11 +25,11 @@ const FoodItem = ({ image, name, price, desc, id, rating }) => {
                 <div className="food-item-name-rating">
                     <p>{name}</p>
                 </div>
-                <p>Đánh giá: {rating}</p>
-                <p className="food-item-desc"> - Mô tả: {desc}</p>
+                <p>Đánh giá: {rating} <span style={{display: 'inline-block', fontSize: "20px", color: '#f9fb6a', background: '#ffffff', borderRadius: "6px",}}>★</span></p>
+                <p className="food-item-desc">{desc}</p>
                 <p className="food-item-price">
-                    <span style={{ fontSize: '30px', fontWeight: 'bold' }}>{price}</span>
-                    <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                    <span style={{ fontSize: '30px', fontWeight: '800' }}>{price}</span>
+                    <span style={{ fontSize: '14px', fontWeight: '800' }}>.000 đ</span>
                 </p>
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -7,7 +8,7 @@ const Header = () => {
             <div className='header-contents'>
                 <h2>Đặt món ăn yêu thích của bạn ngay tại website</h2>
                 <p>Lựa chọn từ thực đơn đa dạng với nhiều món ăn được chế biến từ những nguyên liệu hảo hạng và chuyên môn ẩm thực. Sứ mệnh của chúng tôi là thỏa mãn cơn thèm ăn của bạn và nâng tầm trải nghiệm ăn uống của bạn, từng bữa ăn ngon một.</p>
-                <a href='/menu'><button>Xem thực đơn</button></a>
+                <Link to='/menu'><button>Xem thực đơn</button></Link>
             </div>
         </div>
     )
