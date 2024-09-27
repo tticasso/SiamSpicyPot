@@ -20,7 +20,7 @@ const Navbar = ({ setShowLogin }) => {
     <div className='navbar'>
       <Link to='/'><img className='logo' src={assets.logo} alt="" /></Link>
       <ul className="navbar-menu">
-        <Link style={{ fontFamily: "'Playfair Display', serif", }} to="/" onClick={() => setMenu("home")} className={`${menu === "home" ? "active" : ""}`}>Trang chủ</Link>
+        <Link style={{ fontFamily: "'Playfair Display', serif", }} to="/" onClick={() => setMenu("home")} className={`${menu === "home" ? "active" : ""}`}>Trang chus</Link>
         <Link style={{ fontFamily: "'Playfair Display', serif", }} to='/menu' onClick={() => setMenu("menu")} className={`${menu === "menu" ? "active" : ""}`}>Thực đơn</Link>
         <Link style={{ fontFamily: "'Playfair Display', serif", }} to='/sale' onClick={() => setMenu("sale")} className={`${menu === "sale" ? "active" : ""}`}>Khuyến mãi</Link>
         <Link style={{ fontFamily: "'Playfair Display', serif", }}
