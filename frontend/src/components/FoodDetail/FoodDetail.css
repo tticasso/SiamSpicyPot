@@ -9,8 +9,8 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    overflow: hidden;
 }
-
 .modal-content {
     background-color: white;
     padding: 20px;
@@ -19,7 +19,10 @@
     max-width: 600px;
     width: 90%;
     height: 90%;
+    overflow-y: auto; /* Allow vertical scroll */
+    overflow-x: hidden; /* Hide horizontal scroll */
 }
+
 .food-item-name-rating{
     display: flex;
     flex-direction: column;
@@ -37,11 +40,10 @@
 .food-item-img-container {
     display: flex;
     justify-content: center;
-    
 }
 
 .food-item-image {
     max-width: 100%;
-    max-height: 400px;
+    height: auto;
     border-radius: 10px;
 }
