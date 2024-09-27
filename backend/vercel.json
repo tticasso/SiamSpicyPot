@@ -2,14 +2,14 @@
     "name": "backend",
     "version": 2,
     "functions": {
-        "api/server.js": {
+        "server.js": {
             "maxDuration": 10
         }
     },
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "api/server.js"
+            "dest": "/"
         }
     ]
 }
