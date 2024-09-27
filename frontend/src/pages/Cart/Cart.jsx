@@ -2,21 +2,27 @@ import React, { useContext } from 'react'
 import './Cart.css'
 import { StoreContext } from '../../Context/StoreContext'
 import { useNavigate } from 'react-router-dom';
+import { assets } from '../../assets/assets'
 
 const Cart = () => {
 
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url, currency, deliveryCharge } = useContext(StoreContext);
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url, addToCart } = useContext(StoreContext);
   const navigate = useNavigate();
+
+  console.log(cartItems);
 
   return (
     <div className='cart'>
       <div className="cart-items">
         <div className="cart-items-title">
-          <p>Sản phẩm</p> <p>Tên sản phẩm</p> <p>Giá</p> <p>Số lượng</p> <p>Thành tiền</p> <p>Xóa</p>
+          <p>Sản phẩm</p> <p>Tên sản phẩm</p> <p>Giá</p> <p>Số lượng</p> <p>Thành tiền</p>
         </div>
         <br />
         <hr />
         {food_list.map((item, index) => {
+          {
+            console.log(item.name + cartItems[item._id]);
+          }
           if (cartItems[item._id] > 0) {
             return (<div key={index}>
               <div className="cart-items-title cart-items-item">
@@ -26,12 +32,15 @@ const Cart = () => {
                   <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{item.price}</span>
                   <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
                 </p>
-                <div>{cartItems[item._id]}</div>
+                <div style={{display:"flex", gap:"5px", alignItems:"center"}}>
+                  <img style={{width:"20px", height:"20px"}} src={assets.remove_icon_red} onClick={() => removeFromCart(item._id)} alt="" />
+                  <p>{cartItems[item._id]}</p>
+                  <img style={{width:"20px", height:"20px"}} src={assets.add_icon_green} onClick={() => addToCart(item._id)} alt="" />
+                </div>
                 <p>
                   <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{item.price * cartItems[item._id]}</span>
                   <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
                 </p>
-                <p className='cart-items-remove-icon' onClick={() => removeFromCart(item._id)}>x</p>
               </div>
               <hr />
             </div>)

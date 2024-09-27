@@ -91,6 +91,40 @@ const PlaceOrder = () => {
                 <div className="cart-total">
                     <h2>Tổng đơn hàng</h2>
                     <div>
+                        {food_list.map((item, index) => {
+                            if (cartItems[item._id] > 0) {
+                                return (<div key={index}>
+                                    <div style={{
+                                        display: 'grid',
+                                        gridTemplateColumns: '1fr 1fr 1fr',
+                                        width: "100%"
+                                    }}>
+                                        <p>{item.name}</p>
+                                        <div style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            gap: "10px"
+                                        }}>
+                                            <p>
+                                                <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{item.price}</span>
+                                                <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                                            </p>
+                                            <p>x {cartItems[item._id]}</p>
+                                        </div>
+                                        <p style={{
+                                            textAlign: "right"
+                                        }}>
+                                            <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{item.price * cartItems[item._id]}</span>
+                                            <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                                        </p>
+                                    </div>
+                                    <hr />
+                                </div>)
+                            }
+                        })}
+
+                    </div>
+                    <div>
                         <div className="cart-total-details"><p>Tổng sản phẩm</p>
                             <p>
                                 <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{getTotalCartAmount()}</span>
@@ -117,7 +151,7 @@ const PlaceOrder = () => {
                         <p>Stripe ( Credit / Debit )</p>
                     </div> */}
                 </div>
-                <button className='place-order-submit' type='submit'  style={{ fontSize: '20px' }}>{payment === "cod" ? "Đặt hàng" : "Proceed To Payment"}</button>
+                <button className='place-order-submit' type='submit' style={{ fontSize: '20px' }}>{payment === "cod" ? "Đặt hàng" : "Proceed To Payment"}</button>
             </div>
         </form>
     )

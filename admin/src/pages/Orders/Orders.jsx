@@ -143,7 +143,10 @@ const Order = () => {
               fontFamily: "'Playfair Display', serif",
               fontWeight: 'bold',
               fontSize: '15px',
-            }}>Thành tiền: </span>{currency}{order.amount}</p>
+            }}>Thành tiền: </span><p>
+            <span style={{ fontSize: '14px', fontWeight: 'normal' }}>{order.amount}</span>
+            <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+          </p></p>
             <select
               onChange={(e) => statusHandler(e, order._id)}
               value={order.status}

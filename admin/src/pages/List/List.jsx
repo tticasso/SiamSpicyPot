@@ -53,8 +53,10 @@ const List = () => {
               <img src={`${url}/images/` + item.image} alt="" />
               <p>{item.name}</p>
               <p>{item.category}</p>
-              <p>{item.rating}</p>
-              <p>{currency}{item.price}</p>
+              <p>{item.rating}</p><p>
+                  <span style={{ fontSize: '14px', fontWeight: 'normal' }}>{item.price}</span>
+                  <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                </p>
               <p className='cursor' onClick={() => removeFood(item._id)}>x</p>
             </div>
           )

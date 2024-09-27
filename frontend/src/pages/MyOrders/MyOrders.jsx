@@ -33,7 +33,7 @@ const MyOrders = () => {
       <div className="container">
         {!token &&
           <div className="no-orders">
-            <p>Bạn cần tạo tài khoản và đăng nhập để theo dõi trạng thái đơn hàng</p>
+            <p>Bạn cần tạo tài khoản và đăng nhập để theo dõi trạng thái đơn hàng. Nếu bạn đã đặt hàng thành công, hãy đợi giây lát nhân viên sẽ gọi điện xác nhận đơn giúp bạn.</p>
           </div>
         }
         {token && data.length == 0 &&
