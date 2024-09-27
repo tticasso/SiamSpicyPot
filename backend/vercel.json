@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "version": 2,
   "builds": [
     {
@@ -16,4 +17,19 @@
     "NODE_ENV": "production", // Cấu hình biến môi trường nếu cần
     "OTHER_ENV_VARIABLE": "value" // Thêm biến môi trường khác nếu cần
   }
+=======
+    "name": "backend",
+    "version": 2,
+    "functions": {
+        "api/server.js": {
+            "maxDuration": 10
+        }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/server.js"
+        }
+    ]
+>>>>>>> Stashed changes
 }
