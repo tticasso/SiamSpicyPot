@@ -87,7 +87,9 @@ const PlaceOrder = () => {
                 <input type="text" name='address' onChange={onChangeHandler} value={data.address} placeholder='Địa chỉ' required />
                 <input type="text" name='phone' onChange={onChangeHandler} value={data.phone} placeholder='Phone' required />
             </div>
-            <div className="place-order-right">
+            <div className="place-order-right"
+                style={{ fontFamily: "sans-serif" }}
+            >
                 <div className="cart-total">
                     <h2>Tổng đơn hàng</h2>
                     <div>
@@ -103,19 +105,24 @@ const PlaceOrder = () => {
                                         <div style={{
                                             display: "flex",
                                             alignItems: "center",
-                                            gap: "10px"
+                                            gap: "10px",
+                                            justifyContent: "center"
                                         }}>
                                             <p>
-                                                <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{item.price}</span>
-                                                <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                                                <span style={{ fontFamily: "'Roboto Mono', monospace" }}>{item.price}</span>
+                                                <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "10px" }}>.000 đ</span>
                                             </p>
-                                            <p>x {cartItems[item._id]}</p>
+                                            <p style={{ fontFamily: "'Roboto Mono', monospace" }} >x {cartItems[item._id]}</p>
                                         </div>
                                         <p style={{
-                                            textAlign: "right"
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "right"
                                         }}>
-                                            <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{item.price * cartItems[item._id]}</span>
-                                            <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
+                                            <div>
+                                                <span style={{ fontFamily: "'Roboto Mono', monospace" }}>{item.price * cartItems[item._id]}</span>
+                                                <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "10px" }}>.000 đ</span>
+                                            </div>
                                         </p>
                                     </div>
                                     <hr />
