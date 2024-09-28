@@ -4,6 +4,56 @@ import axios from 'axios'
 import { StoreContext } from '../../Context/StoreContext';
 import { assets } from '../../assets/assets';
 
+function formatDate(isoDate) {
+  const date = new Date(isoDate);
+
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const day = date.getDate();
+  const month = date.getMonth() + 1; // Months are 0-indexed
+  const year = date.getFullYear();
+
+  return `${hours}h${minutes} ngày ${day}/${month}/${year}`;
+}
+
+function timeDifference(dateTime) {
+  const now = new Date();
+  const targetDate = new Date(dateTime);
+  const diffInSeconds = Math.floor((now - targetDate) / 1000);
+
+  let interval = Math.floor(diffInSeconds / 31536000); // seconds in a year
+  if (interval >= 1) {
+    return `${interval} năm trước`;
+  }
+
+  interval = Math.floor(diffInSeconds / 2592000); // seconds in a month
+  if (interval >= 1) {
+    return `${interval} tháng trước`;
+  }
+
+  interval = Math.floor(diffInSeconds / 604800); // seconds in a week
+  if (interval >= 1) {
+    return `${interval} tuần trước`;
+  }
+
+  interval = Math.floor(diffInSeconds / 86400); // seconds in a day
+  if (interval >= 1) {
+    return `${interval} ngày trước`;
+  }
+
+  interval = Math.floor(diffInSeconds / 3600); // seconds in an hour
+  if (interval >= 1) {
+    return `${interval} giờ trước`;
+  }
+
+  interval = Math.floor(diffInSeconds / 60); // seconds in a minute
+  if (interval >= 1) {
+    return `${interval} phút trước`;
+  }
+
+  return `${diffInSeconds} giây trước`;
+}
+
 const MyOrders = () => {
 
   const [data, setData] = useState([]);
@@ -22,6 +72,20 @@ const MyOrders = () => {
     }
   }, [token])
 
+  const renderStatus = (status) => {
+    switch (status) {
+      case 'Food Processing':
+        return 'Đang xử lý món ăn';
+      case 'Out for delivery':
+        return 'Đơn đã hủy';
+      case 'Delivering':
+        return 'Đang giao hàng';
+      case 'Delivered':
+        return 'Đã giao hàng thành công';
+      default:
+        return 'Trạng thái không xác định';
+    }
+  };
   return (
     <div className='my-orders'>
       <h2
@@ -41,25 +105,35 @@ const MyOrders = () => {
             <p>Bạn chưa có đơn hàng nào</p>
           </div>
         }
-        {data.map((order, index) => {
+        {data.slice().reverse().map((order, index) => {
           return (
             <div key={index} className='my-orders-order'>
-              <img src={order.items[0].image} alt="" />
+              <img src={assets.url + "/images/" + order.items[0].image} alt="" />
               <p>{order.items.map((item, index) => {
                 if (index === order.items.length - 1) {
-                  return item.name + " x " + item.quantity
+                  return item.name + " x " + item.quantity;
+                } else {
+                  return item.name + " x " + item.quantity + ", ";
                 }
-                else {
-                  return item.name + " x " + item.quantity + ", "
-                }
-
-              })}</p>
-              <p>{currency}{order.amount}.00</p>
-              <p>Items: {order.items.length}</p>
-              <p><span>&#x25cf;</span> <b>{order.status}</b></p>
+              })}
+              </p>
+              <div>
+                <span style={{ fontFamily: "'Roboto Mono', monospace" }}>{order.amount}</span>
+                <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "10px" }}>.000 đ</span>
+              </div>
+              <p>Số lượng: {order.items.length}</p>
+              <p><span>&#x25cf;</span> <b>{renderStatus(order.status)}</b></p>
+              <div>
+                <div>
+                  <span style={{ fontWeight: "bold" }}>Ngày đặt hàng: </span> {formatDate(order.createdAt)}
+                </div>
+                <div>
+                  <span style={{ fontWeight: "bold" }}>Cập nhật: </span> {timeDifference(order.updatedAt)}
+                </div>
+              </div>
               <button onClick={fetchOrders}>Track Order</button>
             </div>
-          )
+          );
         })}
       </div>
     </div>

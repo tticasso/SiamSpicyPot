@@ -77,7 +77,8 @@ export const assets = {
     bag_icon,
     parcel_icon,
     checked,
-    un_checked
+    un_checked,
+    url,
 }
 
 export const menu_list = [

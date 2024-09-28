@@ -133,17 +133,19 @@ const PlaceOrder = () => {
                     </div>
                     <div>
                         <div className="cart-total-details"><p>Tổng sản phẩm</p>
-                            <p>
-                                <span style={{ fontSize: '20px', fontWeight: 'normal' }}>{getTotalCartAmount()}</span>
-                                <span style={{ fontSize: '14px', fontWeight: 'normal' }}>.000 đ</span>
-                            </p>
+
+                            <span style={{ fontSize: '20px', fontFamily: "'Roboto Mono', monospace" }}>{getTotalCartAmount()}</span>
+                            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "14px" }}>.000 đ</span>
+
                         </div>
                         <hr />
-                        <div className="cart-total-details"><p>Phí khác</p><p>0 đ</p></div>
+                        <div className="cart-total-details"><p>Phí khác</p><p style={{ fontSize: '20px', fontFamily: "'Roboto Mono', monospace" }}>0 đ</p></div>
                         <hr />
                         <div className="cart-total-details"><b>Thành tiền</b><p>
-                            <span style={{ fontSize: '30px', fontWeight: 'bold' }}>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()}</span>
-                            <span style={{ fontSize: '15px', fontWeight: 'bold' }}>.000 đ</span>
+
+                            <span style={{ fontSize: '20px', fontFamily: "'Roboto Mono', monospace" }}>{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount()}</span>
+                            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "14px" }}>.000 đ</span>
+
                         </p></div>
                     </div>
                 </div>
