@@ -55,7 +55,7 @@ import parcel_icon from './parcel_icon.png'
 import checked from './checked.png'
 import un_checked from './un_checked.png'
 
-export const url = 'http://localhost:3000'
+export const url = 'https://siam-backend.vercel.app'
 
 export const assets = {
     logo,
