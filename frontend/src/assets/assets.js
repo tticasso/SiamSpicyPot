@@ -55,7 +55,7 @@ import parcel_icon from './parcel_icon.png'
 import checked from './checked.png'
 import un_checked from './un_checked.png'
 
-export const url = 'https://siam-spicy-pot-backend.vercel.app/'
+export const url = 'http://localhost:3000'
 
 export const assets = {
     logo,
@@ -77,7 +77,8 @@ export const assets = {
     bag_icon,
     parcel_icon,
     checked,
-    un_checked
+    un_checked,
+    url,
 }
 
 export const menu_list = [
