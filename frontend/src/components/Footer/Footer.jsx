@@ -37,12 +37,14 @@ const Footer = () => {
           }}>Liên hệ</h2>
           <ul>
             <li>
-              ♨️ Facebook: https://www.facebook.com/moctrafu</li>
-            <li>♨️ Shopee: https://shp.ee/0zupw5p
+              ♨️ Facebook: <a href='https://www.facebook.com/profile.php?id=61566002715118' className="styled-link">
+                <span>https://www.facebook.com/siamspicepot</span>
+              </a>
+
             </li>
             <li>♨️ Hotline: 0866.086.154 </li>
             <li>
-              ♨️ Mail: moctra.fu@gmail.com
+              ♨️ Mail: siamspicepot@gmail.com
             </li>
           </ul>
         </div>

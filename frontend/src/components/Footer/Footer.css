@@ -58,3 +58,22 @@
     font-size: larger;
     margin-bottom: 40px;
 }
+
+.styled-link {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    color: #007bff; /* Màu của liên kết */
+    font-weight: bold; /* Tạo độ đậm cho chữ */
+    font-size: 16px; /* Kích thước font */
+    transition: color 0.3s ease-in-out; /* Tạo hiệu ứng chuyển đổi màu khi hover */
+  }
+  
+  .styled-link:hover {
+    color: #0056b3; /* Màu khi hover */
+    text-decoration: underline; /* Thêm gạch chân khi hover */
+  }
+  
+  .styled-link span {
+    font-style: bold; /* Làm nghiêng phần span */
+    color: #343a40; /* Màu chữ span */
+  }
+  

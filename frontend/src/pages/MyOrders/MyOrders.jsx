@@ -73,19 +73,47 @@ const MyOrders = () => {
   }, [token])
 
   const renderStatus = (status) => {
+    let color = ''; // Biến để lưu màu sắc cho biểu tượng hình tròn
+
     switch (status) {
       case 'Food Processing':
-        return 'Đang xử lý món ăn';
+        color = 'orange';
+        return (
+          <>
+            <span style={{ color }}>&#x25cf;</span> <span style={{ color }}>Đang xử lý món ăn</span>
+          </>
+        );
       case 'Out for delivery':
-        return 'Đơn đã hủy';
+        color = 'red';
+        return (
+          <>
+            <span style={{ color }}>&#x25cf;</span> <span style={{ color }}>Đơn đã hủy</span>
+          </>
+        );
       case 'Delivering':
-        return 'Đang giao hàng';
+        color = 'blue';
+        return (
+          <>
+            <span style={{ color }}>&#x25cf;</span> <span style={{ color }}>Đang giao hàng</span>
+          </>
+        );
       case 'Delivered':
-        return 'Đã giao hàng thành công';
+        color = 'green';
+        return (
+          <>
+            <span style={{ color }}>&#x25cf;</span> <span style={{ color }}>Đã giao hàng thành công</span>
+          </>
+        );
       default:
-        return 'Trạng thái không xác định';
+        color = 'gray';
+        return (
+          <>
+            <span style={{ color }}>&#x25cf;</span> <span style={{ color }}>Trạng thái không xác định</span>
+          </>
+        );
     }
   };
+
   return (
     <div className='my-orders'>
       <h2
@@ -118,11 +146,12 @@ const MyOrders = () => {
               })}
               </p>
               <div>
+                <span style={{ fontWeight: "bold" }}>Thành tiền: </span>
                 <span style={{ fontFamily: "'Roboto Mono', monospace" }}>{order.amount}</span>
                 <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "10px" }}>.000 đ</span>
               </div>
               <p>Số lượng: {order.items.length}</p>
-              <p><span>&#x25cf;</span> <b>{renderStatus(order.status)}</b></p>
+              <p>{renderStatus(order.status)}</p>
               <div>
                 <div>
                   <span style={{ fontWeight: "bold" }}>Ngày đặt hàng: </span> {formatDate(order.createdAt)}
@@ -131,7 +160,6 @@ const MyOrders = () => {
                   <span style={{ fontWeight: "bold" }}>Cập nhật: </span> {timeDifference(order.updatedAt)}
                 </div>
               </div>
-              <button onClick={fetchOrders}>Track Order</button>
             </div>
           );
         })}

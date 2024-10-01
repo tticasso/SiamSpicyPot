@@ -58,7 +58,7 @@ const PlaceOrder = () => {
             let response = await axios.post(url + "/api/order/placecod", orderData, { headers: { token } });
             if (response.data.success) {
                 navigate("/myorders")
-                toast.success(response.data.message)
+                toast.success("Đặt hàng thành công")
                 setCartItems({});
             }
             else {
@@ -133,10 +133,10 @@ const PlaceOrder = () => {
                     </div>
                     <div>
                         <div className="cart-total-details"><p>Tổng sản phẩm</p>
-
-                            <span style={{ fontSize: '20px', fontFamily: "'Roboto Mono', monospace" }}>{getTotalCartAmount()}</span>
-                            <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "14px" }}>.000 đ</span>
-
+                            <div>
+                                <span style={{ fontSize: '20px', fontFamily: "'Roboto Mono', monospace" }}>{getTotalCartAmount()}</span>
+                                <span style={{ fontFamily: "'Roboto Mono', monospace", fontSize: "14px" }}>.000 đ</span>
+                            </div>
                         </div>
                         <hr />
                         <div className="cart-total-details"><p>Phí khác</p><p style={{ fontSize: '20px', fontFamily: "'Roboto Mono', monospace" }}>0 đ</p></div>

@@ -8,6 +8,7 @@ const FoodItem = ({ image, name, price, desc, id, rating }) => {
     const [itemCount, setItemCount] = useState(0);
     const [showModal, setShowModal] = useState(false);
     const { cartItems, addToCart, removeFromCart, url, currency } = useContext(StoreContext);
+    // console.log(cartItems, id);
 
     const handleItemClick = () => {
         setShowModal(true);
@@ -19,7 +20,7 @@ const FoodItem = ({ image, name, price, desc, id, rating }) => {
             <div className='food-item' onClick={handleItemClick}>
                 <div className='food-item-img-container'>
                     <img className='food-item-image' src={url + "/images/" + image} alt="" />
-                    {!cartItems[id]
+                    {!cartItems?.[id]
                         ? <img className='add' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="" />
                         : <div className="food-item-counter">
                             <img src={assets.remove_icon_red} onClick={() => removeFromCart(id)} alt="" />
