@@ -18,8 +18,8 @@ const FoodItem = ({ image, name, price, desc, id, rating }) => {
     return (
         <>
             <div className='food-item' onClick={handleItemClick}>
-                <div className='food-item-img-container'>
-                    <img className='food-item-image' src={url + "/images/" + image} alt="" />
+                <div className='food-item-img-container'> 
+                    <img className='food-item-image' src={url + "/images/" + image} alt="" loading='lazy' />
                     {!cartItems?.[id]
                         ? <img className='add' onClick={() => addToCart(id)} src={assets.add_icon_white} alt="" />
                         : <div className="food-item-counter">
